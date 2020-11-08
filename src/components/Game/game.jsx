@@ -1,36 +1,46 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import './Game.css';
 import {Board} from '../Board/board'
+import {Result} from '../result/result.jsx'
 
 export default function Game() {
-  let cellValues = ['','','','','','','','','']
+  let [cellValues, setCellvalues] = useState(['','','','','','','','',''])
   let winningCombination = []
+  let [turn, setTurn] = useState(true)
+  let [isGameOver, setIsGameOver] = useState(false)
+
+  const isEmpty = (index) =>{
+    return cellValues[index] === ''
+  }
 
   const onCellClick = (index) =>{
-    console.log(index)
+    if (isEmpty(index)){
+      let newCellValues = [...cellValues]
+      // console.log(index)
+      if (turn){
+        newCellValues[index] = 'x'
+        const newTurn = !turn
+        setTurn(newTurn)
+      }
+      else{
+        newCellValues[index] = 'o'
+        const newTurn = !turn
+        setTurn(newTurn)
+      }
+      
+      setCellvalues(newCellValues)
+    }
   }
 
   return (
     <div>
-    <div id="game">
-      <h1>Tic Tac Toe</h1>
-      <Board cellValues={cellValues} winningCombination={winningCombination} cellClick={onCellClick}/>
-    </div>
-
-
-    <div id="modal-overlay">
-      <div id="game-result-modal">
-        <div id="result-container">
-          <div id="winner-container">
-            <span></span>
-          </div>
-        </div>
-        <div id="new-game-container">
-          <button id="new-game-button">Start New Game</button>
-        </div>
+      <div id="game">
+        <h1>Tic Tac Toe</h1>
+        <Board cellValues={cellValues} winningCombination={winningCombination} cellClick={onCellClick}/>
       </div>
-    </div>
+
+      <Result gameOver={isGameOver}></Result>
     </div>
   );
 }

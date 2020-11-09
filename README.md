@@ -1,3 +1,3 @@
 ## A tic-tac-teo game
 
-![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/nongshalie.jpg)
+![image](https://github.com/chuxi-z/tic-tac-toe-game/blob/main/imgs/result.png)

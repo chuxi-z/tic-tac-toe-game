@@ -1,11 +1,11 @@
 :root {
-  --background-light-color: #57ebd7;
+  --background-light-color: red;
   --background-dark-color: #24a88b;
-  --content-background-color: #fff6be;
-  --primary-color: #007340;
-  --primary-brighter: #00a057;
-  --primary-saturated: #05a058;
-  --primary-saturated-brighter: #07cf72;
+  --content-background-color: #c8beff;
+  --primary-color: blue;
+  --primary-brighter: black;
+  --primary-saturated: rgb(9, 9, 104);
+  --primary-saturated-brighter: purple;
   --accent-color: #FD0;
   --accent-darker: #a79000;
   --box-shadow-color: rgba(0,0,0,0.75);
